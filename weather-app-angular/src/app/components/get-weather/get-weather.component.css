@@ -1,0 +1,296 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 30%;
+    height: 92vh;
+    margin: auto;
+    margin-top: 4vh;
+    justify-content: space-evenly;
+    position: relative;
+   
+    background-color: #000C1C;
+    /* background-color: #24252A; */
+    z-index: -2;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    
+}
+.day{
+    position: absolute;
+    left: 1.5vh;
+    top: 1.5vh;
+    width: 32%;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: 800;
+    border-radius: 7px;
+    letter-spacing: 2px;
+    background: linear-gradient(115deg, #62cff4, #2c67f2);
+    color: #edf0f1;
+    border: 2px solid #edf0f1;
+}
+.night{
+    position: absolute;
+    left: 1.5vh;
+    top: 1.5vh;
+    width: 32%;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: 800;
+    border-radius: 7px;
+    letter-spacing: 2px;
+    background-image: url('/assets/night.png');
+    background-size: cover;
+    background-position: center;
+    color: #edf0f1;
+    border: 2px solid #edf0f1;
+}
+.box1 {
+    margin-top: 1vh;
+    border: 1px solid gold; 
+}
+.box2 {
+    margin-top: 2vh;
+    text-align: center;
+    border-radius: 20px;
+    color: #edf0f1;
+    width: 98%;
+    height: 30vh;
+    background: linear-gradient(115deg, #62cff4, #2c67f2);
+    z-index: -1;
+    border: 2px solid #edf0f1;
+}
+.box2night{
+    margin-top: 2vh;
+    text-align: center;
+    border-radius: 20px;
+    color: #edf0f1;
+    width: 98%;
+    height: 30vh;
+    background-image: url('/assets/night.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    border: 2px solid #edf0f1;
+}
+
+
+
+
+
+
+.mainImg{
+    width: 50%;
+    left: 25%;
+    top:7%;
+    position: absolute;
+    z-index: -1;
+}
+.city{
+    font-size: 5vh;
+}
+.temp{
+    font-size: 6vh;
+    margin-top: 5vh;
+    font-weight: 800;
+    height: 14.5vh;
+    color: black;
+}
+.description{
+    font-weight: 800;
+    font-size: 3vh;
+}
+
+.today{
+    width: 98%;
+    height: 16vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+   
+    justify-content: center;
+    z-index: -1;
+    border: 2px solid #edf0f1;
+}
+.tonight{
+    width: 98%;
+    height: 16vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+   
+    justify-content: center;
+    z-index: -1;
+    border: 2px solid blue;
+}
+
+
+.todayBox{
+    
+    margin: 0 0.4vh;
+    position: relative;
+    padding:3vh 3.5vh;
+    height: 8vh;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: linear-gradient(115deg, #62cff4, #2c67f2);
+    border-radius: 20px;
+    z-index: -3;
+}
+.todayBoxNight{
+    
+    margin: 0 0.4vh;
+    position: relative;
+    padding:3vh 3.5vh;
+    height: 8vh;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-image: url('/assets/night.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    z-index: -3;
+}
+
+
+.todayImg{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 10%;
+    z-index: -2;
+     
+}
+.todayTemp{
+    font-size: 2vh;
+    font-weight: 600;
+    color: #222222;
+    margin-top: 3vh;
+    width: 220%;
+    z-index: 1;
+ 
+}
+.todayTime{
+    font-size: 2vh;
+    font-weight: 600;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    /* color: #222222; */
+
+
+}
+
+
+
+
+.box3 {
+    height: 19vh;
+    width: 98%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: 2px solid #edf0f1;
+    border-radius: 20px;
+    font-size: 3vh;
+    font-weight: 600;
+    
+}
+
+.infoBox{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border-radius: 20px;
+    width: 30%;
+    background: linear-gradient(115deg, #62cff4, #2c67f2);
+}
+.infoBoxNight{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border-radius: 20px;
+    width: 30%;
+    background-image: url('/assets/night.png');
+    background-size: cover;
+    background-position: center;
+}
+.infoBoxNight img{
+    width: 20%;
+    margin-left: 0.5vh;
+}
+
+.infoBox img{
+    width: 20%;
+    margin-left: 0.5vh;
+}
+
+
+/* 1A1A36 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
+.input {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 3px solid #ffd52d;
+    border-radius: 50px;
+    box-sizing: border-box;
+   
+    font-size: 26px;
+    color: #ffd52d;
+    outline: none;
+    transition: .5s;
+}
+.box:hover input{
+    width: 150px;
+
+    border-radius: 10px;
+}
+.box i{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+    color: #ffd52d;
+    transition: .2s;
+}
+.box:hover i{
+    opacity: 0;
+    z-index: -1;
+}  */
