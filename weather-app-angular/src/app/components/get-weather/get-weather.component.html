@@ -1,19 +1,24 @@
 
+  
+ 
 
 <div [ngClass]="{'backDay': !isNight(), 'backNight': isNight()}">
  
-
+    
 
 
 <div class="container">
-<div class="box1"> wyszukiwanie</div>
+<!-- <div class="box1"> wyszukiwanie</div> -->
+<input type="text" [(ngModel)]="cityName" class="input">
+    <button (click)="getWeatherForCity(cityName)">Szukaj</button>
 <div [ngClass]="{'day': !isNight(), 'night': isNight()}">
    {{weather.time}}
 </div>
 
-<div [ngClass]="{'box2': !isNight(), 'box2night': isNight()}">
 
+ <div [ngClass]="{'box2': !isNight(), 'box2night': isNight()}">
 
+ 
 <div class="city">{{weather.city}}</div>
 <div class="temp">{{weather.temp}} &deg;C</div>
 <div class="description">{{weather.description}}</div>
@@ -74,4 +79,4 @@
     <div class="stars3"></div>
 </div>
 </div>
-</div>
+</div>  

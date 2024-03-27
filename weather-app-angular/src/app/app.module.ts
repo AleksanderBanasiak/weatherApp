@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { GetWeatherComponent } from './components/get-weather/get-weather.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ActualTimeComponent } from './actual-time/actual-time.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    GetWeatherComponent,
-    ActualTimeComponent
+    GetWeatherComponent
+   
   ],
   imports: [
     BrowserModule,

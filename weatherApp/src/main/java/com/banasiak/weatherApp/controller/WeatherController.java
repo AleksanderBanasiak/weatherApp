@@ -6,6 +6,7 @@ import com.banasiak.weatherApp.model.SimpleWeather;
 import com.banasiak.weatherApp.service.WeatherImgService;
 import com.banasiak.weatherApp.service.WeatherService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import static com.banasiak.weatherApp.mapper.TodayWeatherMapper.mapAllInfoDtoToN
 @RestController
 @RequestMapping("/weather")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class WeatherController {
 
     private final WeatherService weatherService;
@@ -59,9 +61,9 @@ public class WeatherController {
         // nie wiem czy jest sens robić service dla img chyba lepiej zrobić to w angularze
 
 
-    @GetMapping("/xpp")
-    public ResponseEntity<DisplayWeatherDto> getWeather() {
-        AllInfoDto weather = weatherService.getWeather("katowice");
+    @GetMapping()
+    public ResponseEntity<DisplayWeatherDto> getWeather(@RequestParam(required = false, defaultValue = "katowice") String city) {
+            AllInfoDto weather = weatherService.getWeather(city);
         DisplayWeatherDto weatherOfDay = weatherService.getWeatherOfDay(weather);
         return ResponseEntity.ok(weatherOfDay);
     }

@@ -12,12 +12,10 @@ export class WeatherService {
 
   constructor(private http: HttpClient ) { }
 
-  // getWeather(): Observable<any> {
-  //   return this.http.get(BASIC_URL+"/weather/xpp");
-  // }
+ 
 
-  getWeather(weather: Weather): Observable<Weather> {
-    return this.http.get<Weather>(BASIC_URL+"/weather/xpp");
+  getWeatherForCity(city: string): Observable<Weather> {
+    return this.http.get<Weather>(`${BASIC_URL}/weather?city=${city}`);
   }
   
 

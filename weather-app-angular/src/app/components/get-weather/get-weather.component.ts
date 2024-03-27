@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { WeatherService } from '../../service/weather.service';
 import { Weather } from '../../weather';
-import { SimpleWeather } from '../../simpleWeather';
+
 
 @Component({
   selector: 'app-get-weather',
@@ -16,21 +16,27 @@ export class GetWeatherComponent {
 
   weather: Weather = {} as Weather;
 
+  cityName: string ='';
+
   constructor(private weatherService: WeatherService){
 
     
   }
 
   ngOnInit(){
-    this.getWeather();
+    this.getWeatherForCity('katowice');
   }
 
-  getWeather(){
-    this.weatherService.getWeather(this.weather).subscribe((res) =>{
+
+  getWeatherForCity(cityName: string) {
+    cityName = cityName.trim(); // Usuń białe znaki z przodu i z tyłu
+    cityName = cityName; 
+    this.weatherService.getWeatherForCity(cityName).subscribe((res) => {
       console.log(res);
       this.weather = res;
-    })
+    });
   }
+
 
   
 
