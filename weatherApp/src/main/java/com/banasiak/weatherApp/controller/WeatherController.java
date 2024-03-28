@@ -23,42 +23,14 @@ import static com.banasiak.weatherApp.mapper.TodayWeatherMapper.mapAllInfoDtoToN
 public class WeatherController {
 
     private final WeatherService weatherService;
-    private final WeatherImgService weatherImgService;
-
-//    @GetMapping
-//    public String getWeather(@RequestParam(required = false, defaultValue = "katowice") String city, Model model) {
-//        WeatherDto weather = weatherService.getWeather(city);
-//        String imageUrl = weatherImgService.setImg(weather.getImgId(), weather.getUnixTime());
-//        model.addAttribute("image", imageUrl);
-//        model.addAttribute("weather", weather);
-//        return "index";
-//    }
 
 
-//        @GetMapping()
-//        public AllInfoDto getWeather(@RequestParam(required = false, defaultValue = "katowice") String city, Model model) {
-//
-//          AllInfoDto weather = weatherService.getWeather(city);
-//
-//          // tutaj zamiast get(0) powinno byc podanie dnia domyślnie dzisiaj
-//          String imageUrl = weatherImgService.setImg(weather.getWeather().get(0).getWeatherId(), weather.getSunset());
-//
-//
-//            model.addAttribute("image", imageUrl);
-//            model.addAttribute("weather", weather);
-//
-//            return weather;
-//        }
+    @GetMapping("/xd")
+    public AllInfoDto xd(){
 
+        return weatherService.getWeather("racibórz");
+    }
 
-
-        // ta metoda jest git bo zwaraca wszystkie dane początkowe czyli obecną pogodę dla katowic z całą reszą ukrytych informacji
-//        @GetMapping("/xpp")
-//        public ResponseEntity<DisplayWeatherDto> getWeather() {
-//            AllInfoDto weather = weatherService.getWeather("katowice");
-//            return ResponseEntity.ok(weatherService.getWeatherOfDay(weather));
-//        }
-        // nie wiem czy jest sens robić service dla img chyba lepiej zrobić to w angularze
 
 
     @GetMapping()

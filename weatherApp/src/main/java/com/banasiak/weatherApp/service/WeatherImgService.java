@@ -23,7 +23,7 @@ public class WeatherImgService {
                 case 800 -> "day_clear";
                 case 801 -> "day_partial_cloud";
                 case 802 -> "cloudy";
-                case 803 -> "overcast";
+                case 803 -> "day_partial_cloud";
                 case 804 -> "overcast";
                 case 701 -> "mist";
                 case 711 -> "mist";

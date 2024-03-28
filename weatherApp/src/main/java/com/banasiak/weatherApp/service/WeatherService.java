@@ -26,12 +26,6 @@ public class WeatherService {
     public AllInfoDto getWeather(String city){
         return weatherClient.getWeatherForSpecificCity(city);
     }
-
-
-
-    // totaj trzeba pobrac dla jednego wyswietlania
-
-
     public DisplayWeatherDto getWeatherOfDay(AllInfoDto allInfoDto){
         return mapAllInfoDtoToDisplayWeatherDto(allInfoDto);
     }

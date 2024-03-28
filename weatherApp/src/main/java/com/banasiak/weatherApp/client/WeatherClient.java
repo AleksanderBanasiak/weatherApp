@@ -24,7 +24,15 @@ public class WeatherClient {
     private final RestTemplate restTemplate = new RestTemplate();
 
     public AllInfoDto getWeatherForSpecificCity(String city) {
-        OpenWeatherJSONdto jsonDto = restTemplate.getForObject(WEATHER_URL + API_KEY + "&q={city}&units=metric", OpenWeatherJSONdto.class, city);
+        OpenWeatherJSONdto jsonDto;
+        try {
+            jsonDto = restTemplate.getForObject(WEATHER_URL + API_KEY
+                    + "&q={city}&units=metric", OpenWeatherJSONdto.class, city);
+        }catch ( Exception e){
+            throw new IllegalArgumentException("City doesn't exist " + e.getMessage());
+        }
+
+
         List<WeatherInfo> weather = extractWeatherInfo(List.of(jsonDto.getList()));
         return buildAllInfoDto(jsonDto, weather);
     }

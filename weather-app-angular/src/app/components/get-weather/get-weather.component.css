@@ -69,27 +69,31 @@
     background-position: center;
     border: 2px solid #edf0f1;
 }
-input{
-    background-color: red;
-}
+
 .mainImg{
-    width: 50%;
-    left: 25%;
-    top:8%;
+    width: 45%;
+    left: 27%;
+    top:9%;
     position: absolute;
 }
 .city{
     font-size: 5vh;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 .temp{
     font-size: 6vh;
-    margin-top: 5vh;
+
     font-weight: 800;
     height: 14.5vh;
     color: black;
     position: absolute;
     z-index: 10;
     left: 50%;
+    top:20%;
     transform: translateX(-50%);
 }
 .description{
@@ -210,3 +214,165 @@ input{
     margin-left: 0.5vh;
 }
 /* 1A1A36 */
+
+
+
+
+.search-bar, .search-barNight{
+    position: absolute;
+    right: 1.5vh;
+    top: 1vh;
+    width: 50%;
+    height: 10%;
+    justify-content: right;
+    display: flex;
+}
+* {
+	border: 0;	
+}
+.search-bar input,
+.search-barNight input,
+.search-btn, 
+.search-btn:before, 
+.search-btn:after {
+	transition: all 0.25s ease-out;
+}
+.search-bar input,
+.search-barNight input,
+.search-btn {
+	width: 3em;
+	height: 3em;
+}
+.search-bar input:invalid:not(:focus),
+.search-barNight input:invalid:not(:focus),
+.search-btn {
+	cursor: pointer;
+}
+.search-bar,
+.search-barNight,
+.search-barNight input:focus,
+.search-barNight input:valid,
+.search-bar input:focus,
+.search-bar input:valid  {
+	width: 100%;
+}
+.search-bar input:focus,
+.search-barNight input:focus,
+.search-barNight input:not(:focus) + .search-btn:focus,
+.search-bar input:not(:focus) + .search-btn:focus {
+	outline: transparent;
+}
+.search-bar, .search-barNight {
+	justify-content: right;
+	max-width: 14em;
+}
+.search-bar input, .search-barNight input {
+	background: transparent;
+	border-radius: 1.5em;
+	box-shadow: 0 0 0 0.4em #171717 inset;
+	padding-left: 0.75em;
+	transform: translate(0.5em,0.5em) scale(0.5);
+	transform-origin: 100% 0;
+	appearance: none;
+   
+}
+.search-bar input:focus,
+.search-bar input:valid,
+.search-barNight input:focus,
+.search-barNight input:valid {
+	background: #fff;
+	border-radius: 0.375em 0 0 0.375em;
+	box-shadow: 0 0 0 0.1em #d9d9d9 inset;
+	transform: scale(1);
+    font-weight: 600; 
+}
+.search-btn {
+	border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
+	transform: translate(0.25em,0.25em) rotate(45deg) scale(0.25,0.125);
+	transform-origin: 0 50%;
+}
+.search-btn:before, 
+.search-btn:after {
+	content: "";
+	display: block;
+	opacity: 0;
+	position: absolute;
+}
+.search-btn:before {
+	border-radius: 50%;
+	box-shadow: 0 0 0 0.2em #f1f1f1 inset;
+	top: 0.75em;
+	left: 0.75em;
+	width: 1.2em;
+	height: 1.2em;
+}
+.search-btn:after {
+	background: #f1f1f1;
+	border-radius: 0 0.25em 0.25em 0;
+	top: 51%;
+	left: 51%;
+	width: 0.75em;
+	height: 0.25em;
+	transform: translate(0.2em,0) rotate(45deg);
+	transform-origin: 0 50%;
+}
+
+
+.search-bar input:focus + .search-btn,
+.search-bar input:valid + .search-btn {
+	background: linear-gradient(115deg, #62cff4, #2c67f2);
+	border-radius: 0 0.375em 0.375em 0;
+	transform: scale(1);
+}
+
+
+.search-barNight input:focus + .search-btn,
+.search-barNight input:valid + .search-btn {
+	background-image: url('/assets/night.png');
+    background-size: cover;
+    background-position: center;
+	border-radius: 0 0.375em 0.375em 0;
+	transform: scale(1);
+}
+
+
+.search-bar input:focus + .search-btn:before, 
+.search-bar input:focus + .search-btn:after,
+.search-bar input:valid + .search-btn:before, 
+.search-bar input:valid + .search-btn:after,
+.search-barNight input:focus + .search-btn:before, 
+.search-barNight input:focus + .search-btn:after,
+.search-barNight input:valid + .search-btn:before, 
+.search-barNight input:valid + .search-btn:after {
+	opacity: 1;
+}
+
+.search-bar input:focus + .search-btn:active,
+.search-bar input:valid + .search-btn:active,
+.search-barNight input:focus + .search-btn:active,
+.search-barNight input:valid + .search-btn:active {
+	transform: translateY(1px);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	body, input {
+		color: #f1f1f1;
+	}
+	body {
+		background: #171717;
+	}
+	.search-bar input,
+    .search-barNight input {
+		box-shadow: 0 0 0 0.4em #f1f1f1 inset;
+	}
+	.search-bar input:focus,
+	.search-bar input:valid,
+    .search-barNight input:focus,
+	.search-barNight input:valid {
+		background: #3d3d3d;
+		box-shadow: 0 0 0 0.1em #3d3d3d inset;
+	}
+	.search-btn {
+		background: #f1f1f1;
+	}
+}

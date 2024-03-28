@@ -8,9 +8,21 @@
 
 
 <div class="container">
-<!-- <div class="box1"> wyszukiwanie</div> -->
-<input type="text" [(ngModel)]="cityName" class="input">
-    <button (click)="getWeatherForCity(cityName)">Szukaj</button>
+ 
+<!-- <input type="text" [(ngModel)]="cityName" class="input">
+    <button (click)="getWeatherForCity(cityName)">Szukaj</button> -->
+
+    
+<br>
+<br>
+   
+        <div [ngClass]="{'search-bar': !isNight(), 'search-barNight': isNight()}">
+            <input type="search" [(ngModel)]="cityName" name="search" required autocomplete="off">
+            <button class="search-btn" (click)="getWeatherForCity(cityName)"></button>
+        </div>
+   
+
+
 <div [ngClass]="{'day': !isNight(), 'night': isNight()}">
    {{weather.time}}
 </div>
