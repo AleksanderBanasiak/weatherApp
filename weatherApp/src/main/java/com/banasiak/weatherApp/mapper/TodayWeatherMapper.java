@@ -14,10 +14,6 @@ import static com.banasiak.weatherApp.service.WeatherImgService.setImg;
 
 public class TodayWeatherMapper {
 
-
-
-
-
     public static List<SimpleWeather> mapAllInfoDtoToTodayWeather(AllInfoDto allInfoDto){
 
 
@@ -26,7 +22,7 @@ public class TodayWeatherMapper {
                         == LocalDateTime.now().getDayOfMonth())
                 .map(weatherInfo -> SimpleWeather.builder()
                         .temp(weatherInfo.getTemp())
-                        .weatherImg(setImg(weatherInfo.getWeatherId(), "23:59"))
+                        .weatherImg(setImg(weatherInfo.getWeatherId(), allInfoDto.getSunset()))
                         .time(weatherInfo.getDateTime().format(DateTimeFormatter.ofPattern("HH:mm")))
                         .build()
                 )
@@ -34,8 +30,6 @@ public class TodayWeatherMapper {
     }
 
     public static List<SimpleWeather> mapAllInfoDtoToNextDayWeather(AllInfoDto allInfoDto){
-
-        // to trzeba napisac
 
         return allInfoDto.getWeather().stream()
                 .filter(weatherInfo -> weatherInfo.getDateTime().getHour() == 12)

@@ -1,9 +1,6 @@
 package com.banasiak.weatherApp.dto;
 
-import lombok.Builder;
 import lombok.Getter;
-
-import java.time.LocalDateTime;
 
 @Getter
 public class OpenWeatherCity {

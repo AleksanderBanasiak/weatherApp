@@ -1,6 +1,5 @@
 package com.banasiak.weatherApp.client;
 
-import com.banasiak.weatherApp.dto.OpenWeatherCity;
 import com.banasiak.weatherApp.dto.OpenWeatherJSONdto;
 import com.banasiak.weatherApp.dto.OpenWeatherList;
 import com.banasiak.weatherApp.dto.WeatherInfo;

@@ -13,7 +13,6 @@ import static com.banasiak.weatherApp.service.WeatherImgService.setImg;
 
 public class DisplayWeatherDtoMapper {
 
-//    weatherId(allInfoDto.getWeather().get(0).getWeatherId())
     public static DisplayWeatherDto mapAllInfoDtoToDisplayWeatherDto(AllInfoDto allInfoDto){
 
 

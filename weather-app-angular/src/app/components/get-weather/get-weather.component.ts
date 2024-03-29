@@ -10,10 +10,6 @@ import { Weather } from '../../weather';
 })
 export class GetWeatherComponent {
 
-  // weather: any;
-
-  // weather: Weather;
-
   weather: Weather = {} as Weather;
 
   cityName: string ='';
@@ -29,17 +25,12 @@ export class GetWeatherComponent {
 
 
   getWeatherForCity(cityName: string) {
-    cityName = cityName.trim(); // Usuń białe znaki z przodu i z tyłu
+    cityName = cityName.trim(); 
     cityName = cityName; 
     this.weatherService.getWeatherForCity(cityName).subscribe((res) => {
-      console.log(res);
       this.weather = res;
     });
   }
-
-
-  
-
 
   isNight(): boolean {
    
@@ -50,7 +41,6 @@ export class GetWeatherComponent {
 
     const [hours1, minutes1] = timeOfDay1.split(':').map(Number);
 
-  
     const dateObj1 = new Date(0, Number(month1) - 1, Number(day1), hours1, minutes1);
     const dateObj2 = new Date(0, Number(month1) - 1, Number(day1), hours2, minutes2);
 

@@ -17,9 +17,6 @@ import static com.banasiak.weatherApp.mapper.DisplayWeatherDtoMapper.mapAllInfoD
 @Slf4j
 public class WeatherService {
 
-
-
-
     private final WeatherClient weatherClient;
 
     @Cacheable("Weather")

@@ -1,36 +1,17 @@
-
-  
- 
-
 <div [ngClass]="{'backDay': !isNight(), 'backNight': isNight()}">
- 
-    
 
-
-<div class="container">
- 
-<!-- <input type="text" [(ngModel)]="cityName" class="input">
-    <button (click)="getWeatherForCity(cityName)">Szukaj</button> -->
-
-    
+<div class="container">    
 <br>
 <br>
    
-        <div [ngClass]="{'search-bar': !isNight(), 'search-barNight': isNight()}">
-            <input type="search" [(ngModel)]="cityName" name="search" required autocomplete="off">
-            <button class="search-btn" (click)="getWeatherForCity(cityName)"></button>
-        </div>
-   
-
-
+     <div [ngClass]="{'search-bar': !isNight(), 'search-barNight': isNight()}">
+        <input type="search" [(ngModel)]="cityName" name="search" required autocomplete="off"> 
+        <button class="search-btn" (click)="getWeatherForCity(cityName)"></button>
+    </div>
 <div [ngClass]="{'day': !isNight(), 'night': isNight()}">
    {{weather.time}}
 </div>
-
-
- <div [ngClass]="{'box2': !isNight(), 'box2night': isNight()}">
-
- 
+<div [ngClass]="{'box2': !isNight(), 'box2night': isNight()}"> 
 <div class="city">{{weather.city}}</div>
 <div class="temp">{{weather.temp}} &deg;C</div>
 <div class="description">{{weather.description}}</div>
@@ -54,8 +35,6 @@
         <img [src]="'assets/images/' + nextDay.weatherImg + '.svg'" class="todayImg"> 
     </div>
 </div>
-
-  
 
 <div class="box3">
 
