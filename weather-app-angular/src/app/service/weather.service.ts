@@ -19,4 +19,8 @@ export class WeatherService {
   }
   
 
+  getWeatherForCityWithSpecicficDay(city: string, day: number): Observable<Weather> {
+    return this.http.get<Weather>(`${BASIC_URL}/weather?city=${city}&day=${day}`);
+  }
+
 }

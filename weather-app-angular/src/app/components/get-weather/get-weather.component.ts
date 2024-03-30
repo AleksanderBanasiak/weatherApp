@@ -14,6 +14,8 @@ export class GetWeatherComponent {
 
   cityName: string ='';
 
+  isDay: boolean = true;
+
   constructor(private weatherService: WeatherService){
 
     
@@ -21,6 +23,7 @@ export class GetWeatherComponent {
 
   ngOnInit(){
     this.getWeatherForCity('katowice');
+    
   }
 
 
@@ -29,22 +32,37 @@ export class GetWeatherComponent {
     cityName = cityName; 
     this.weatherService.getWeatherForCity(cityName).subscribe((res) => {
       this.weather = res;
+    this.isDay = this.isNight();
+
     });
   }
 
   isNight(): boolean {
-   
-    const [date1, timeOfDay1] = this.weather.time.split(' ');
-    const [day1, month1] = date1.split('.');
-
-    const [hours2, minutes2] = this.weather.sunset.split(':').map(Number);
-
-    const [hours1, minutes1] = timeOfDay1.split(':').map(Number);
-
-    const dateObj1 = new Date(0, Number(month1) - 1, Number(day1), hours1, minutes1);
-    const dateObj2 = new Date(0, Number(month1) - 1, Number(day1), hours2, minutes2);
-
-    return dateObj1.getTime() > dateObj2.getTime();
+    if (!this.weather.time || !this.weather.sunrise || !this.weather.sunset) {
+      return false; 
+    }
+  
+    const [hours1, minutes1] = this.weather.time.split(' ')[1].split(':').map(Number);
+    const [hoursSunrise, minutesSunrise] = this.weather.sunrise.split(':').map(Number);
+    const [hoursSunset, minutesSunset] = this.weather.sunset.split(':').map(Number);
+  
+    const currentTimeInMinutes = hours1 * 60 + minutes1;
+    const sunriseTimeInMinutes = hoursSunrise * 60 + minutesSunrise;
+    const sunsetTimeInMinutes = hoursSunset * 60 + minutesSunset;
+  
+  
+    return currentTimeInMinutes > sunriseTimeInMinutes && currentTimeInMinutes < sunsetTimeInMinutes;
   }
+
+  getWeatherForCityWithSecificDay(index: number, city: string) {
+    this.weatherService.getWeatherForCityWithSpecicficDay(city, index).subscribe((res) =>{
+      this.weather = res;
+      this.isDay = this.isNight();
+    });
+  }
+
+  
+  
+
 
 }

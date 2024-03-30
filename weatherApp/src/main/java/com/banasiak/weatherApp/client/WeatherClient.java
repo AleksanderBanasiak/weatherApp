@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -59,6 +60,7 @@ public class WeatherClient {
                 .city(jsonDto.getCity().getName())
                 .sunrise(unixToHour(jsonDto.getCity().getSunrise(), jsonDto.getCity().getTimezone()))
                 .sunset(unixToHour(jsonDto.getCity().getSunset(), jsonDto.getCity().getTimezone()))
+                .time(unixToHour(String.valueOf(Instant.now().getEpochSecond()), jsonDto.getCity().getTimezone()))
                 .weather(weather)
                 .build();
     }

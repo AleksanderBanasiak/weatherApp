@@ -8,9 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.time.format.DateTimeFormatter;
-
-import static com.banasiak.weatherApp.mapper.DisplayWeatherDtoMapper.mapAllInfoDtoToDisplayWeatherDto;
+import static com.banasiak.weatherApp.mapper.DisplayWeatherDtoMapper.mapAllInfoDtoToDisplayWeatherDtoButForSpecificDay;
 
 @Service
 @RequiredArgsConstructor
@@ -23,8 +21,8 @@ public class WeatherService {
     public AllInfoDto getWeather(String city){
         return weatherClient.getWeatherForSpecificCity(city);
     }
-    public DisplayWeatherDto getWeatherOfDay(AllInfoDto allInfoDto){
-        return mapAllInfoDtoToDisplayWeatherDto(allInfoDto);
+    public DisplayWeatherDto getWeatherOfDay(AllInfoDto allInfoDto, int day){
+        return mapAllInfoDtoToDisplayWeatherDtoButForSpecificDay(allInfoDto, day);
     }
 
 

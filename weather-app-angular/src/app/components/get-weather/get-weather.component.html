@@ -1,17 +1,19 @@
-<div [ngClass]="{'backDay': !isNight(), 'backNight': isNight()}">
+<div [ngClass]="{'backDay': isDay, 'backNight': !isDay}">
 
+
+    
 <div class="container">    
 <br>
 <br>
    
-     <div [ngClass]="{'search-bar': !isNight(), 'search-barNight': isNight()}">
+     <div [ngClass]="{'search-bar': isDay, 'search-barNight': !isDay}">
         <input type="search" [(ngModel)]="cityName" name="search" required autocomplete="off"> 
         <button class="search-btn" (click)="getWeatherForCity(cityName)"></button>
     </div>
-<div [ngClass]="{'day': !isNight(), 'night': isNight()}">
+<div [ngClass]="{'day': isDay, 'night': !isDay}">
    {{weather.time}}
 </div>
-<div [ngClass]="{'box2': !isNight(), 'box2night': isNight()}"> 
+<div [ngClass]="{'box2': isDay, 'box2night': !isDay}"> 
 <div class="city">{{weather.city}}</div>
 <div class="temp">{{weather.temp}} &deg;C</div>
 <div class="description">{{weather.description}}</div>
@@ -20,16 +22,16 @@
 
 </div>
 
-<div class="today">
-    <div *ngFor="let today of weather.today" [ngClass]="{'todayBox': !isNight(), 'todayBoxNight': isNight()}">
+<div [ngClass]="{'today': weather.today.length <= 5, 'today2': weather.today.length > 5}">
+    <div *ngFor="let today of weather.today" [ngClass]="{'todayBox': isDay, 'todayBoxNight': !isDay}">
         <div class="todayTemp">{{ today.temp }} &deg;C</div>
         <div class="todayTime">{{ today.time }} </div>
         <img [src]="'assets/images/' + today.weatherImg + '.svg'" class="todayImg">
   </div>
 </div>
 
-<div class="today">
-    <div *ngFor="let nextDay of weather.nextDays" [ngClass]="{'todayBox': !isNight(), 'todayBoxNight': isNight()}">
+<div [ngClass]="{'today': weather.nextDays.length <= 5, 'today2': weather.nextDays.length > 5}">
+    <div *ngFor="let nextDay of weather.nextDays; let i = index" [ngClass]="{'todayBox': isDay, 'todayBoxNight': !isDay}" (click)="getWeatherForCityWithSecificDay(i, weather.city)">
         <div class="todayTemp">{{ nextDay.temp }} &deg;C</div>
         <div class="todayTime">{{ nextDay.time }}</div>
         <img [src]="'assets/images/' + nextDay.weatherImg + '.svg'" class="todayImg"> 
@@ -38,32 +40,32 @@
 
 <div class="box3">
 
-    <div [ngClass]="{'infoBox': !isNight(), 'infoBoxNight': isNight()}">
+    <div [ngClass]="{'infoBox': isDay, 'infoBoxNight': !isDay}">
         {{weather.maxDayTemp}} &deg;C
         <img [src]="'assets/icons/up.png'"> 
     </div>
    
-    <div [ngClass]="{'infoBox': !isNight(), 'infoBoxNight': isNight()}">{{weather.minDayTemp}} &deg;C
+    <div [ngClass]="{'infoBox': isDay, 'infoBoxNight': !isDay}">{{weather.minDayTemp}} &deg;C
         <img [src]="'assets/icons/down.png'"> 
     </div>
-    <div [ngClass]="{'infoBox': !isNight(), 'infoBoxNight': isNight()}">{{weather.pressure}}
+    <div [ngClass]="{'infoBox': isDay, 'infoBoxNight': !isDay}">{{weather.pressure}}
         <img [src]="'assets/icons/pressure.png'"> 
     </div>
-    <div [ngClass]="{'infoBox': !isNight(), 'infoBoxNight': isNight()}">{{weather.sunrise}}
+    <div [ngClass]="{'infoBox': isDay, 'infoBoxNight': !isDay}">{{weather.sunrise}}
         <img [src]="'assets/icons/sunrise.png'"> 
     </div>
-    <div [ngClass]="{'infoBox': !isNight(), 'infoBoxNight': isNight()}">{{weather.sunset}}
+    <div [ngClass]="{'infoBox': isDay, 'infoBoxNight': !isDay}">{{weather.sunset}}
         <img [src]="'assets/icons/sunset.png'"> 
     </div>
     
-    <div [ngClass]="{'infoBox': !isNight(), 'infoBoxNight': isNight()}">{{weather.wind}}km/h
+    <div [ngClass]="{'infoBox': isDay, 'infoBoxNight': !isDay}">{{weather.wind}}km/h
         <img [src]="'assets/icons/wind.png'"> 
     </div>
 </div>
 
 </div>
 
-<div *ngIf="isNight()">
+<div *ngIf="!isDay">
 <div class="sky">
     <div class="stars"></div>
     <div class="stars2"></div>

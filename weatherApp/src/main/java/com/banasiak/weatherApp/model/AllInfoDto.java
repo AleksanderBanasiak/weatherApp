@@ -14,6 +14,7 @@ public class AllInfoDto {
     private String city;
     private String sunrise;
     private String sunset;
+    private String time;
     private List<WeatherInfo> weather;
 
 

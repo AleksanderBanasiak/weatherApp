@@ -9,14 +9,14 @@ public class WeatherImgService {
 
 
     // xd
-    public static String setImg(int id, String sunset){
+    public static String setImg(int id,String time, String sunset){
         String img;
-
-        LocalTime now = LocalTime.now();
-        LocalTime whenSunSet = LocalTime.parse(sunset);
-
-        boolean isDay = now.isBefore(whenSunSet);
-
+        boolean isDay ;
+        if(time == null || sunset == null){
+            isDay = true;
+        }else {
+            isDay = LocalTime.parse(time).isBefore(LocalTime.parse(sunset));
+        }
         if(isDay){
             // day
              img = switch (id){
