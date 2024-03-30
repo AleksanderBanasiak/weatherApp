@@ -7,8 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import static com.banasiak.weatherApp.mapper.DisplayWeatherDtoMapper.mapAllInfoDtoToDisplayWeatherDtoButForSpecificDay;
-
 @RestController
 @RequestMapping("/weather")
 @RequiredArgsConstructor
@@ -16,24 +14,6 @@ import static com.banasiak.weatherApp.mapper.DisplayWeatherDtoMapper.mapAllInfoD
 public class WeatherController {
 
     private final WeatherService weatherService;
-
-
-    @GetMapping("/xd")
-    public ResponseEntity<DisplayWeatherDto> getWeatherxpp(@RequestParam(required = false, defaultValue = "katowice") String city) {
-        AllInfoDto weather = weatherService.getWeather(city);
-
-
-
-        return ResponseEntity.ok(mapAllInfoDtoToDisplayWeatherDtoButForSpecificDay(weather, 3));
-    }
-    @GetMapping("/xdd")
-    public ResponseEntity<AllInfoDto> getWeatherxppd(@RequestParam(required = false, defaultValue = "katowice") String city) {
-        AllInfoDto weather = weatherService.getWeather(city);
-
-
-
-        return ResponseEntity.ok(weather);
-    }
 
 
     @GetMapping()
